@@ -1,0 +1,48 @@
+﻿@using KisiselBlog.Models.EntityFramework
+@using KisiselBlog.Helpers
+@model List<BlogTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var offsetTop = -550; // Örnek olarak, 50 piksel olarak ayarladık
+        var navbar = document.querySelector(".custom-navbar");
+        navbar.setAttribute("data-offset-top", offsetTop);
+    });
+</script>
+<!-- blog section -->
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center">
+        <h6 class="section-title mb-6">Blog</h6>
+        <!-- blog-wrapper -->
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(item.BaslikResim)" style="height:250px;" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                    <div class="blog-card-body">
+                        <h5 class="blog-card-title">
+                            @item.Baslik
+                        </h5>
+                        <p class="blog-card-caption">
+                            <a href="#">By:Admin</a>
+                            <a href=""><i class="ti-time"></i>@item.Olusturmatarihi.Value.ToShortDateString()</a>
+                        <p>@item.Konu</p>
+                        <a href="/Blog/@item.Id/@Seo.AdresDuzenle(item.Baslik.ToLower())" class="blog-card-link">Daha Fazla Göster<i class="ti-angle-double-right"></i></a>
+                    </div>
+                   
+                </div>
+            }
+        }
+        <h1>@ViewBag.mesaj</h1>
+    </div><!-- end of container -->
+</section><!-- end of blog section -->

@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> @ViewData["Baslik"] beginner developer-muhammet ali çomak-kişisel blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="kişisel olarak teknoloji ile alakalı blog yazılarımı paylaşıyorum.">
+    <meta name="author" content="beginnerdeveloper">
+    <link rel="shortcut icon" href="~/Content/icon-crops.png" />
+    <!-- font icons -->
+    <link rel="stylesheet" href="~/Content/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link href="~/AdminContent/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/meyawo.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    @Html.Partial("_Navbar")
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @Html.Partial("_Footer")
+
+
+    <!-- core  -->
+<script src="~/Content/vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.6.4.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Content/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <!-- bootstrap 3 affix -->
+    <script src="~/Content/vendors/bootstrap/bootstrap.affix.js"></script>
+    <!-- Meyawo js -->
+    <script src="~/Scripts/meyawo.js"></script>
+</body>
+</html>

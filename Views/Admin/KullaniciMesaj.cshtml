@@ -1,0 +1,41 @@
+﻿@using KisiselBlog.Models.EntityFramework
+@model  List<KullaniciMesaj>
+@{
+    ViewBag.Title = "KullaniciMesaj";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="clearfix">
+    <div class="content-wrapper">
+        <div class="col-lg-6"></div>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İletişim Mesaj</h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Ad Soyad</th>
+                                <th scope="col">E-posta</th>
+                                <th scope="col">Yorum</th>
+                                <th scope="col">Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.AdSoyad</td>
+                                    <td>@item.Eposta</td>
+                                    <td>@item.Yorum</td>
+                                    <td><a class="btn btn-danger" href="/Admin/KullaniciMesajSil/@item.Id"> Sil</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

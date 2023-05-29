@@ -1,0 +1,31 @@
+﻿@model KisiselBlog.Models.EntityFramework.BlogTable
+@{
+    ViewBag.Title = "DahaFazlaGoster";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var offsetTop = -550; // Örnek olarak, 50 piksel olarak ayarladık
+        var navbar = document.querySelector(".custom-navbar");
+        navbar.setAttribute("data-offset-top", offsetTop);
+    });
+</script>
+<section class="section" id="blog">
+    <!-- container -->
+    <div class="container text-center" style="max-width: 1140px;">
+        <h6 class="section-title mb-6">Blog</h6>
+        <!-- blog-wrapper -->
+        <div class="card-text" >
+            <div>
+                <h5 class="blog-card-title  d-flex justify-content-center align-items-center" >
+                    @Model.Baslik
+                </h5>
+                <p class="blog-card-caption">
+                    <a href="#">By:Admin</a>
+                    <a href=""><i class="ti-time"></i>@Model.Olusturmatarihi.Value.ToShortDateString()</a>
+                <p>@Html.Raw(Model.Blog)</p>
+            </div>
+        </div>
+    </div><!-- end of container -->
+</section><!-- end of blog section -->

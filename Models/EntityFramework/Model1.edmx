@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="beginner_developerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BlogTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="nvarchar" MaxLength="50" />
+          <Property Name="Konu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Blog" Type="text" />
+          <Property Name="Olusturmatarihi" Type="datetime" />
+          <Property Name="Guncellemetarihi" Type="datetime" />
+          <Property Name="BaslikResim" Type="image" />
+        </EntityType>
+        <EntityType Name="HakkimdaTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resim" Type="image" />
+          <Property Name="Hakkimda" Type="text" />
+          <Property Name="Instagram" Type="nvarchar" MaxLength="250" />
+          <Property Name="Linkedin" Type="nvarchar" MaxLength="250" />
+          <Property Name="Github" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="KullaniciMesaj">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="Eposta" Type="nvarchar" MaxLength="100" />
+          <Property Name="Yorum" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="LoginTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullaniciadi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Eposta" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoginResim" Type="image" />
+        </EntityType>
+        <EntityType Name="PortfolyoTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PortfolyoBaslik" Type="nvarchar" MaxLength="100" />
+          <Property Name="PortfolyoKategori" Type="nvarchar" MaxLength="100" />
+          <Property Name="PortFolyoResim" Type="image" />
+        </EntityType>
+        <EntityContainer Name="beginner_developerModelStoreContainer">
+          <EntitySet Name="BlogTable" EntityType="Self.BlogTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HakkimdaTable" EntityType="Self.HakkimdaTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciMesaj" EntityType="Self.KullaniciMesaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginTable" EntityType="Self.LoginTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PortfolyoTable" EntityType="Self.PortfolyoTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="beginner_developerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BlogTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Konu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Blog" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Olusturmatarihi" Type="DateTime" Precision="3" />
+          <Property Name="Guncellemetarihi" Type="DateTime" Precision="3" />
+          <Property Name="BaslikResim" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="HakkimdaTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resim" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Hakkimda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Instagram" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Linkedin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Github" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KullaniciMesaj">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Yorum" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullaniciadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoginResim" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PortfolyoTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PortfolyoBaslik" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PortfolyoKategori" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PortFolyoResim" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="beginner_developerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BlogTable" EntityType="Self.BlogTable" />
+          <EntitySet Name="HakkimdaTable" EntityType="Self.HakkimdaTable" />
+          <EntitySet Name="KullaniciMesaj" EntityType="Self.KullaniciMesaj" />
+          <EntitySet Name="LoginTable" EntityType="Self.LoginTable" />
+          <EntitySet Name="PortfolyoTable" EntityType="Self.PortfolyoTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="beginner_developerModelStoreContainer" CdmEntityContainer="beginner_developerEntities">
+          <EntitySetMapping Name="BlogTable">
+            <EntityTypeMapping TypeName="beginner_developerModel.BlogTable">
+              <MappingFragment StoreEntitySet="BlogTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Blog" ColumnName="Blog" />
+                <ScalarProperty Name="Olusturmatarihi" ColumnName="Olusturmatarihi" />
+                <ScalarProperty Name="Guncellemetarihi" ColumnName="Guncellemetarihi" />
+                <ScalarProperty Name="BaslikResim" ColumnName="BaslikResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HakkimdaTable">
+            <EntityTypeMapping TypeName="beginner_developerModel.HakkimdaTable">
+              <MappingFragment StoreEntitySet="HakkimdaTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Hakkimda" ColumnName="Hakkimda" />
+                <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+                <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+                <ScalarProperty Name="Github" ColumnName="Github" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciMesaj">
+            <EntityTypeMapping TypeName="beginner_developerModel.KullaniciMesaj">
+              <MappingFragment StoreEntitySet="KullaniciMesaj">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTable">
+            <EntityTypeMapping TypeName="beginner_developerModel.LoginTable">
+              <MappingFragment StoreEntitySet="LoginTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kullaniciadi" ColumnName="Kullaniciadi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="LoginResim" ColumnName="LoginResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PortfolyoTable">
+            <EntityTypeMapping TypeName="beginner_developerModel.PortfolyoTable">
+              <MappingFragment StoreEntitySet="PortfolyoTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PortfolyoBaslik" ColumnName="PortfolyoBaslik" />
+                <ScalarProperty Name="PortfolyoKategori" ColumnName="PortfolyoKategori" />
+                <ScalarProperty Name="PortFolyoResim" ColumnName="PortFolyoResim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
